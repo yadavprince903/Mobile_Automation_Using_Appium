@@ -3,11 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Appium_Learn.Appium.AppiumBasics">
+      <class name="Appium_Learn.Appium.ViewsTest">
         <methods>
-          <include name="AppiumTest"/>
+          <include name="swipetogallery"/>
+          <include name="scrolltoWebview"/>
+          <include name="configureAppium"/>
+          <include name="teardown"/>
         </methods>
-      </class> <!-- Appium_Learn.Appium.AppiumBasics -->
+      </class> <!-- Appium_Learn.Appium.ViewsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
