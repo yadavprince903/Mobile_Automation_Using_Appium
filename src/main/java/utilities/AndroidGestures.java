@@ -1,26 +1,31 @@
 package utilities;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
 
 
 
-public class CommonLibrary {
+public class AndroidGestures {
+	AndroidDriver driver;
+	
+	public AndroidGestures(AndroidDriver driver) {
+		this.driver=driver;
+	}
 
-	public void LogPress(WebElement element,WebDriver driver) {
+	public void LogPress(WebElement element) {
 
 		((JavascriptExecutor) driver).executeScript("mobile: longClickGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) element).getId(), "duration", 2000));
 
 	}
 	
-	public void Swipe(WebElement element,String direction,WebDriver driver) {
+	public void Swipe(WebElement element,String direction) {
 
 		((JavascriptExecutor) driver).executeScript("mobile: swipeGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) element).getId(),
@@ -29,7 +34,7 @@ public class CommonLibrary {
 
 	}
 	
-	public void dragNdrop(WebElement source,int x,int y,WebDriver driver) {
+	public void dragNdrop(WebElement source,int x,int y) {
 
 		((JavascriptExecutor) driver).executeScript("mobile: dragGesture",
 				ImmutableMap.of("elementId", ((RemoteWebElement) source).getId(),
@@ -39,16 +44,12 @@ public class CommonLibrary {
 	}
 
 	
-	  public void ScrollDown(String elementname,WebDriver driver) {
-	  System.out.println("new UiScrollable(newUiSelector)).scrollIntoView(text("
-	  +elementname+"));");
+	  public void ScrollDowntotext(String elementname) {
 	  
 	  driver.findElement(AppiumBy.
-	  androidUIAutomator("new UiScrollable(newUiSelector)).scrollIntoView(text("
-	  +elementname+"));"));
+	  androidUIAutomator("new UiScrollable(newUiSelector)).scrollIntoView(text(\""
+	  +elementname+"\"));"));
 	  
-	  System.out.println("new UiScrollable(newUiSelector)).scrollIntoView(text("
-	  +elementname+"));");
 	  
 	  
 		/*
@@ -59,6 +60,8 @@ public class CommonLibrary {
 		 */
 	  
 	  }
+	  
+	 
 	 
 
 }

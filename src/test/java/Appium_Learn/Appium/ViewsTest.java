@@ -6,11 +6,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.AppiumBy;
-import utilities.CommonLibrary;
+import utilities.AndroidGestures;
 
 public class ViewsTest extends Base {
 
-	CommonLibrary clib=new CommonLibrary();
 	@Test(enabled = false)
 	public void LongpressGesture()  {
 		
@@ -18,7 +17,7 @@ public class ViewsTest extends Base {
 		driver.findElement(AppiumBy.accessibilityId("Expandable Lists")).click();
 		driver.findElement(AppiumBy.accessibilityId("1. Custom Adapter")).click();
 		WebElement peopleName=driver.findElement(By.xpath("//android.widget.TextView[@text='People Names']"));
-		clib.LogPress(peopleName,driver);
+		//clib.LogPress(peopleName,driver);
 		WebElement sample_menu=driver.findElement(By.id("android:id/title"));
 		Assert.assertEquals(sample_menu.getText(), "Sample menu");
 		Assert.assertTrue(sample_menu.isDisplayed());
@@ -42,7 +41,7 @@ public class ViewsTest extends Base {
 		driver.findElement(AppiumBy.accessibilityId("1. Photos")).click();
 		WebElement FirstImage= driver.findElement(By.xpath("(//android.widget.ImageView)[1]"));
 		Assert.assertEquals(FirstImage.getAttribute("focusable"),"true");
-		clib.Swipe(FirstImage, "left",driver);
+	//	clib.Swipe(FirstImage, "left",driver);
 		Assert.assertEquals(FirstImage.getAttribute("focusable"),"false");
 		
 		
